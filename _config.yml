@@ -1,88 +1,20 @@
-# Site settings
-title: Hux Blog
-SEOTitle: 黄玄的博客 | Hux Blog
-header-img: img/home-bg.jpg
-email: huxpro@gmail.com
-description: "这里是 @Hux黄玄 的个人博客，与你一起发现更大的世界 | 要做一个有 swag 的程序员"
-keyword: "黄玄, Hux黄玄, Hux, 鬼栈, huxpro, @huxpro, 黄玄的博客, Hux Blog, 博客, 个人网站, 互联网, Web, JavaScript, React, React Native, 前端, 设计"
-url: "https://huxpro.github.io" # your host, for absolute URL
-baseurl: "" # for example, '/blog' if your blog hosted on 'host/blog'
+# 鳳山區單車看板
 
+這是可直接部署的靜態單頁網站，入口為 `index.html`，不需要建置步驟或額外套件。
 
-# Publish posts or collection documents with a future date.
-future: true
+## 資料與更新
 
+- 直接讀取高雄市政府交通局 YouBike 2.0 JSON API。
+- 僅呈現 `scity === 高雄市` 且 `sarea === 鳳山區` 的站點。
+- 每 10 分鐘重新讀取；折線保留此瀏覽器最近 24 筆讀取紀錄。
+- 可借車數少於 5 台的站點會醒目標示，總數也會列在概況卡片。
+- 「附近優先」只有在使用者主動點選後才會請求瀏覽器位置權限。
 
-# SNS settings
-RSS: false
-weibo_username: huxpro
-zhihu_username: huxpro
-github_username: huxpro
-twitter_username: huxpro
-#facebook_username:  huxpro
-#linkedin_username:  firstname-lastname-idxxxx
+## 公開部署
 
+可以將整個 `fengshan-youbike-dashboard` 資料夾拖放到 [Netlify Drop](https://app.netlify.com/drop) 建立公開網址；資料夾根目錄已包含 `index.html`。Netlify 官方文件說明可用拖放方式發布靜態網站。
 
-# Build settings
-# from 2016, 'pygments' is unsupported on GitHub Pages. Use 'rouge' for highlighting instead.
-highlighter: rouge
-permalink: pretty
-paginate: 10
-exclude:
-  [
-    "less",
-    "node_modules",
-    "Gruntfile.js",
-    "package.json",
-    "README.md",
-    "README.zh.md",
-  ]
-anchorjs: true # if you want to customize anchor. check out line:181 of `post.html`
-# If you have timezone issue (e.g. #68) in China, uncomment to use this:
-#timezone: CN
+## 資料來源
 
-
-# Gems
-# from PR#40, to support local preview for Jekyll 3.0
-# make sure you have this gem installed
-# `$ gem install jekyll-paginate`
-plugins: [jekyll-paginate]
-
-
-# Markdown settings
-# replace redcarpet to kramdown,
-# although redcarpet can auto highlight code, the lack of header-id make the catalog impossible, so I switch to kramdown
-# document: http://jekyllrb.com/docs/configuration/#kramdown
-markdown: kramdown
-kramdown:
-  input: GFM # use Github Flavored Markdown !important
-  syntax_highlighter_opts:
-    span:
-      line_numbers: false
-    block:
-      line_numbers: true
-      start_line: 1
-
-
-# Disqus settings
-disqus_username: hux
-
-
-# Netease settings
-netease_comment: false
-
-
-# Analytics settings
-# Baidu Analytics
-# ba_track_id: [your track id]
-
-
-# Google Analytics
-ga_track_id: "UA-49627206-1" # Format: UA-xxxxxx-xx
-ga_domain: huxpro.github.io
-
-
-# Sidebar settings
-sidebar: true # whether or not using Sidebar.
-sidebar-about-description: "要做一个有 swag 的程序员 <br> React Team @ Meta"
-sidebar-avatar: https://github.com/Huxpro.png # use absolute URL, seeing it's used in both `/` and `/about/`
+- API：<https://openapi.kcg.gov.tw/Api/Service/Get/b4dd9c40-9027-4125-8666-06bef1756092>
+- 資料集：<https://data.gov.tw/dataset/173477>
