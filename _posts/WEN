@@ -1,0 +1,20 @@
+# 鳳山區單車看板
+
+這是可直接部署的靜態單頁網站，入口為 `index.html`，不需要建置步驟或額外套件。
+
+## 資料與更新
+
+- 直接讀取高雄市政府交通局 YouBike 2.0 JSON API。
+- 僅呈現 `scity === 高雄市` 且 `sarea === 鳳山區` 的站點。
+- 每 10 分鐘重新讀取；折線保留此瀏覽器最近 24 筆讀取紀錄。
+- 可借車數少於 5 台的站點會醒目標示，總數也會列在概況卡片。
+- 「附近優先」只有在使用者主動點選後才會請求瀏覽器位置權限。
+
+## 公開部署
+
+可以將整個 `fengshan-youbike-dashboard` 資料夾拖放到 [Netlify Drop](https://app.netlify.com/drop) 建立公開網址；資料夾根目錄已包含 `index.html`。Netlify 官方文件說明可用拖放方式發布靜態網站。
+
+## 資料來源
+
+- API：<https://openapi.kcg.gov.tw/Api/Service/Get/b4dd9c40-9027-4125-8666-06bef1756092>
+- 資料集：<https://data.gov.tw/dataset/173477>
